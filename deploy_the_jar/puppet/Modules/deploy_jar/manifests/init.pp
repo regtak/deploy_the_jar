@@ -3,7 +3,7 @@ class deploy_jar
   #if $::facts['operatingsystemmajrelease'] == '7' {
     service { 'firewalld':
         ensure => 'stopped',
-        before => Package['java'],
+        before => Package['java-1.8.0-openjdk'],
     }
   #}
   #elsif $::facts['operatingsystemmajrelease'] == '6'{
