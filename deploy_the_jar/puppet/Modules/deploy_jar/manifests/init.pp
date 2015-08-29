@@ -1,23 +1,23 @@
 class deploy_jar
 {
-  if $facts['operatingsystemmajrelease'] == '7' {
+  #if $::facts['operatingsystemmajrelease'] == '7' {
     service { 'firewalld':
         ensure => 'stopped',
         before => Package['java'],
     }
-  }
-  elsif $facts['operatingsystemmajrelease'] == '6'{
-    service { 'iptables':
-        ensure => 'stopped',
-        before => Package['java'],
-    }
-  }
-  elsif $facts['operatingsystemmajrelease'] == '5'{
-    exec { 'stop iptables':
-        command => "/etc/init.d/iptables stop",  
-        before => Package['java'],
-    }
-  }
+  #}
+  #elsif $::facts['operatingsystemmajrelease'] == '6'{
+  #  service { 'iptables':
+  #      ensure => 'stopped',
+  #      before => Package['java'],
+  #  }
+  #}
+  #elsif $::facts['operatingsystemmajrelease'] == '5'{
+  #  exec { 'stop iptables':
+  #      command => "/etc/init.d/iptables stop",  
+  #      before => Package['java'],
+  #  }
+  #}
   package { 'java':
         ensure => 'installed',
         before => Exec['download_jar'] 
