@@ -1,11 +1,12 @@
-class deploy_jar
+class deploy_jar ($host)
 {
-  #if $::facts['operatingsystemmajrelease'] == '7' {
+  
+   if $::facts['operatingsystemmajrelease'] == '7' {
     service { 'firewalld':
         ensure => 'stopped',
         before => Package['java-1.8.0-openjdk'],
     }
-  #}
+  }
   #elsif $::facts['operatingsystemmajrelease'] == '6'{
   #  service { 'iptables':
   #      ensure => 'stopped',
