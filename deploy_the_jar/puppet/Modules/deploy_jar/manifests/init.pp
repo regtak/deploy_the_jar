@@ -3,13 +3,13 @@ class deploy_jar
    if $operatingsystemmajrelease == '7' {
     service { 'firewalld':
         ensure => 'stopped',
-#       before => Package['java-1.8.0-openjdk'],
+        before => Package['java-1.8.0-openjdk'],
     }
   }
   if $operatingsystemmajrelease == '6' {
     exec { "stop iptables":
         command => "/usr/bin/sudo /etc/init.d/iptables stop",
-        #before => Package['java-1.8.0-openjdk'],
+        before => Package['java-1.8.0-openjdk'],
     }
   }
   
