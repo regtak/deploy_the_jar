@@ -18,7 +18,7 @@ class deploy_jar
   #      before => Package['java'],
   #  }
   #}
-  package { 'java':
+  package { 'java-1.8.0-openjdk':
         ensure => 'installed',
         before => Exec['download_jar'] 
       }
