@@ -6,13 +6,13 @@ class deploy_jar
         before => Package['java-1.8.0-openjdk'],
     }
   }
-  elsif Facts['operatingsystemmajrelease'] == '6' {
+  if Facts['operatingsystemmajrelease'] == '6' {
     service { 'iptables':
         ensure => 'stopped',
         before => Package['java-1.8.0-openjdk'],
     }
   }
-  elsif Facts['operatingsystemmajrelease'] == '5' {
+  if Facts['operatingsystemmajrelease'] == '5' {
     exec { 'stop iptables':
         command => "/etc/init.d/iptables stop",  
         before => Package['java-1.8.0-openjdk'],
