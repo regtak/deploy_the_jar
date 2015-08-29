@@ -27,7 +27,7 @@ class deploy_jar
   before => Exec ['run_jar']
   }
   exec {'run_jar':
-  command => "/bin/java -jar spring-boot-sample-jetty-1.0.0.RC5.jar", 
+  command => "/bin/java -jar spring-boot-sample-jetty-1.0.0.RC5.jar&", 
   }
 }
 
