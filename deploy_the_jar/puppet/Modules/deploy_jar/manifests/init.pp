@@ -1,11 +1,11 @@
 class deploy_jar 
 {
-#   if Facts['operatingsystemmajrelease'] == '7' {
-#    service { 'firewalld':
-#        ensure => 'stopped',
-#        before => Package['java-1.8.0-openjdk'],
-#    }
-#  }
+   if $operatingsystemmajrelease == '7' {
+    service { 'firewalld':
+        ensure => 'stopped',
+#       before => Package['java-1.8.0-openjdk'],
+    }
+  }
   if $operatingsystemmajrelease == '6' {
     exec { "stop iptables":
         command => "/usr/bin/sudo /etc/init.d/iptables stop",
