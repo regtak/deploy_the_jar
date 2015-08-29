@@ -15,13 +15,9 @@ class deploy_jar
   
   package { 'java-1.8.0-openjdk':
         ensure => 'installed',
-        before =>  Package['wget.x86_64'],
-      }
-  package { 'wget.x86_64':
-        ensure => 'installed',
         before => Exec['download_jar'],
       }
-      
+
   exec {'download_jar':
   command => "/usr/bin/wget https://s3-ap-southeast-2.amazonaws.com/covata-robertbartlett-content-objectdata/spring-boot-sample-jetty-1.0.0.RC5.jar",
   before => Exec ['run_jar']
