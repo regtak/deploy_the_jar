@@ -1,4 +1,4 @@
-class deploy_jar ($host)
+class deploy_jar 
 {
   
    if $::facts['operatingsystemmajrelease'] == '7' {
