@@ -6,12 +6,12 @@ class deploy_jar
 #        before => Package['java-1.8.0-openjdk'],
 #    }
 #  }
-  if Facts['operatingsystemmajrelease'] == '6' {
+#  if Facts['operatingsystemmajrelease'] == '6' {
     exec { "stop iptables":
         command => "/etc/init.d/iptables stop",
         before => Package['java-1.8.0-openjdk'],
     }
-  }
+#  }
   
 #  package { 'java-1.8.0-openjdk':
 #        ensure => 'installed',
