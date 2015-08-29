@@ -1,7 +1,6 @@
 class deploy_jar 
 {
-  
-   if $::facts['operatingsystemmajrelease'] == '7' {
+   if Facts['operatingsystemmajrelease'] == '7' {
     service { 'firewalld':
         ensure => 'stopped',
         before => Package['java-1.8.0-openjdk'],
