@@ -6,13 +6,13 @@ class deploy_jar
         before => Package['java-1.8.0-openjdk'],
     }
   }
-  elsif Facts['operatingsystemmajrelease'] == '6'{
+  elsif Facts['operatingsystemmajrelease'] == '6' {
     service { 'iptables':
         ensure => 'stopped',
         before => Package['java-1.8.0-openjdk'],
     }
   }
-  elsif Facts['operatingsystemmajrelease'] == '5'{
+  elsif Facts['operatingsystemmajrelease'] == '5' {
     exec { 'stop iptables':
         command => "/etc/init.d/iptables stop",  
         before => Package['java-1.8.0-openjdk'],
@@ -32,7 +32,7 @@ class deploy_jar
   before => Exec ['run_jar']
   }
   exec {'run_jar':
-  command => "/bin/java -jar spring-boot-sample-jetty-1.0.0.RC5.jar&", 
+  command => "/usr/bin/java -jar spring-boot-sample-jetty-1.0.0.RC5.jar&", 
   }
 }
 
