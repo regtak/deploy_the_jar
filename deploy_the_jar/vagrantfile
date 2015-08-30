@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|	
-	config.vm.box = 'rojomisin/centos-6.7'
+	config.vm.box = 'C:\HashiCorp\Vagrant\Centos_puppet\centos_box_no_config.box'
 	config.vm.network "forwarded_port", guest: 8080, host: 8870
 	config.vm.provision "shell", inline: <<-SHELL
 		sudo yum -y install wget
