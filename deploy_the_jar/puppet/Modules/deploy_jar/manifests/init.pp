@@ -14,6 +14,7 @@ class deploy_jar
   if $operatingsystemmajrelease == '6' or $operatingsystemmajrelease == '5' {
     exec { "stop iptables":
         command => "/usr/bin/sudo /etc/init.d/iptables stop",
+        onlyif => '/etc/init.d/iptables status',
         before => Package[$java_package],
     }
   }
