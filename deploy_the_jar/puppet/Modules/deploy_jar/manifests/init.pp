@@ -25,7 +25,7 @@ class deploy_jar
       }
 
   exec {'download_jar':
-  command => "/usr/bin/wget https://s3-ap-southeast-2.amazonaws.com/covata-robertbartlett-content-objectdata/spring-boot-sample-jetty-1.0.0.RC5.jar",
+  command => "/usr/bin/wget --no-check-certificate https://s3-ap-southeast-2.amazonaws.com/covata-robertbartlett-content-objectdata/spring-boot-sample-jetty-1.0.0.RC5.jar",
   before => Exec ['run_jar']
  }
   exec {'run_jar':
