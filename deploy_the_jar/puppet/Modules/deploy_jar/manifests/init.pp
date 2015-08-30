@@ -2,7 +2,7 @@ class deploy_jar
 {
   $java_package = $operatingsystemmajrelease ? {
     '5' => 'java-1.6.0-openjdk',
-    default:  => 'java-1.8.0-openjdk',
+    default  => 'java-1.8.0-openjdk',
   }
     
    if $operatingsystemmajrelease == '7' {
